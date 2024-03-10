@@ -13,6 +13,9 @@ username(VARCHAR(15)) | tweet(VARCHAR(140)) | numFavorites(INT)
 user1234                'I enjoy posting!'      12
 ```
 ```
+
+CREATE TABLE cats ( name VARCHAR(50), age INT);
+CREATE TABLE dogs ( name VARHCAR(30), breed VARCHAR(40), age INT) 
 (luke@localhost) [petshop]> show columns from dogs;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
