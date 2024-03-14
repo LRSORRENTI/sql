@@ -172,3 +172,63 @@ Rows matched: 1  Changed: 1  Warnings: 0
 |        9 | polo shirt | purple | L    |        50 |
 +----------+------------+--------+------+-----------+
 9 rows in set (0.02 sec)
+
+UPDATE shirts SET size='XS', color='off white' WHERE color='white';
+
+(luke@localhost) [shirts_db]> SELECT * FROM shirts;
++----------+------------+-----------+------+-----------+
+| shirt_id | article    | color     | size | last_worn |
++----------+------------+-----------+------+-----------+
+|        1 | t-shirt    | off white | XS   |        10 |
+|        2 | t-shirt    | green     | S    |       200 |
+|        3 | polo shirt | black     | L    |        10 |
+|        4 | tank top   | blue      | S    |        50 |
+|        5 | t-shirt    | pink      | S    |         0 |
+|        6 | polo shirt | red       | L    |         5 |
+|        7 | tank top   | off white | XS   |       200 |
+|        8 | tank top   | blue      | M    |         0 |
+|        9 | polo shirt | purple    | L    |        50 |
++----------+------------+-----------+------+-----------+
+9 rows in set (0.00 sec)
+
+DELETE FROM shirts WHERE last_worn>=200;
+
+SELECT * FROM shirts;
++----------+------------+-----------+------+-----------+
+| shirt_id | article    | color     | size | last_worn |
++----------+------------+-----------+------+-----------+
+|        1 | t-shirt    | off white | XS   |        10 |
+|        3 | polo shirt | black     | L    |        10 |
+|        4 | tank top   | blue      | S    |        50 |
+|        5 | t-shirt    | pink      | S    |         0 |
+|        6 | polo shirt | red       | L    |         5 |
+|        8 | tank top   | blue      | M    |         0 |
+|        9 | polo shirt | purple    | L    |        50 |
++----------+------------+-----------+------+-----------+
+
+DELETE FROM shirts WHERE article='tank top';
+
+SELECT * FROM shirts;
++----------+------------+-----------+------+-----------+
+| shirt_id | article    | color     | size | last_worn |
++----------+------------+-----------+------+-----------+
+|        1 | t-shirt    | off white | XS   |        10 |
+|        3 | polo shirt | black     | L    |        10 |
+|        5 | t-shirt    | pink      | S    |         0 |
+|        6 | polo shirt | red       | L    |         5 |
+|        9 | polo shirt | purple    | L    |        50 |
++----------+------------+-----------+------+-----------+
+
+
+DELETE FROM shirts;
+Query OK, 5 rows affected (0.12 sec)
+
+(luke@localhost) [shirts_db]> SELECT * FROM shirts;
+Empty set (0.00 sec)
+
+DROP TABLE shirts;
+Query OK, 0 rows affected (0.47 sec)
+
+(luke@localhost) [shirts_db]> DESC shirts;
+ERROR 1146 (42S02): Table 'shirts_db.shirts' doesn't exist
+
