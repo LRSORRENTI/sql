@@ -1,5 +1,11 @@
 # Create database 
 
+Initialize terminal SQL:
+
+```
+mysql -u root -p
+```
+
 To create a database use the command: 
 
 CREATE DATABASE soapdatabase;
