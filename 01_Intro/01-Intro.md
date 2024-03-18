@@ -6,6 +6,10 @@ Initialize terminal SQL:
 mysql -u root -p
 ```
 
+TO SHOW DATABASES: 
+
+SHOW DATABASES;
+
 To create a database use the command: 
 
 CREATE DATABASE soapdatabase;
