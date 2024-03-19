@@ -137,6 +137,8 @@ SELECT title, CHAR_LENGTH(title) AS character_count FROM books;
 
 ## Print out the first 10 chars of each title, and append ... to the title, and name it as 'short title', then in the next column print the author lastname in the middle a ',' and the author firstname named as author, then in the final column the quantity of them in a format '12 in stock'
 
+SHORT TITLE DONE:
+
 SELECT CONCAT(SUBSTR(title, 1, 10), '...') AS 'short title'
 FROM books  WHERE SUBSTR(title, 1, 1) = 'A' AND released_year < 2011;
 
