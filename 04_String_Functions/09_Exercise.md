@@ -156,7 +156,9 @@ SELECT CONCAT(stock_quantity, ' in stock') AS quantity FROM books  WHERE SUBSTR(
 FINAL QUERY:
 
 
-SELECT CONCAT(SUBSTR(title, 1, 10), '...') AS 'short title', CONCAT(author_lname, ',' ,author_fname) AS author, CONCAT(stock_quantity, ' in stock') AS quantity FROM books  WHERE SUBSTR(title, 1, 1) = 'A' AND released_year < 2011;
+SELECT 
+    CONCAT(SUBSTR(title, 1, 10), '...') AS 'short title', CONCAT(author_lname, ',' ,author_fname) AS author, CONCAT(stock_quantity, ' in stock') AS quantity FROM books 
+    WHERE SUBSTR(title, 1, 1) = 'A' AND released_year < 2011;
 +---------------+-------------+--------------+
 | short title   | author      | quantity     |
 +---------------+-------------+--------------+
