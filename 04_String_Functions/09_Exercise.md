@@ -142,10 +142,12 @@ SELECT title, CHAR_LENGTH(title) AS character_count FROM books;
 SELECT * FROM books  WHERE SUBSTR(title, 1, 1) = 'A' AND released_year < 2011;
 
 
+AUTHOR IS DONE:
 
-
-
+SELECT CONCAT(author_lname, ',' ,author_fname) AS author
+FROM books  WHERE SUBSTR(title, 1, 1) = 'A' AND released_year < 2011;
 
 
 QUANTITY IS DONE:
+
 SELECT CONCAT(stock_quantity, ' in stock') AS quantity FROM books  WHERE SUBSTR(title, 1, 1) = 'A' AND released_year < 2011;
