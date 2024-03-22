@@ -6,6 +6,10 @@ Initialize terminal SQL:
 mysql -u root -p
 ```
 
+```
+mysql -u luke -p
+```
+
 TO SHOW DATABASES: 
 
 SHOW DATABASES;
