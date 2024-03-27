@@ -42,3 +42,17 @@ SELECT * FROM books WHERE pages = (SELECT Min(pages) FROM books);
 +---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
 |      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
 +---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+
+SELECT title, author_lname, pages FROM books WHERE pages = (SELECT MAX(pages) FROM books);
++-------------------------------------------+--------------+-------+
+| title                                     | author_lname | pages |
++-------------------------------------------+--------------+-------+
+| The Amazing Adventures of Kavalier & Clay | Chabon       |   634 |
++-------------------------------------------+--------------+-------+
+
+SELECT title, released_year FROM books WHERE released_year = (SELECT MIN(released_year) FROM books);
++-------------+---------------+
+| title       | released_year |
++-------------+---------------+
+| Cannery Row |          1945 |
++-------------+---------------+
