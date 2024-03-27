@@ -14,12 +14,13 @@ SELECT COUNT(*) FROM books;
 +----------+
 1 row in set (0.02 sec)
 
-SELECT DISTINCT(COUNT(author_fname)) FROM books;
-+-----------------------+
-| (COUNT(author_fname)) |
-+-----------------------+
-|                    19 |
-+-----------------------+
+SELECT COUNT(DISTINCT author_fname) FROM books;
++------------------------------+
+| COUNT(DISTINCT author_fname) |
++------------------------------+
+|                           12 |
++------------------------------+
+
 
 SELECT COUNT(DISTINCT(released_year)) FROM books;
 +--------------------------------+
