@@ -6,6 +6,7 @@ Initialize terminal SQL:
 mysql -u root -p
 ```
 
+### FOR THE COURSE:
 ```
 mysql -u luke -p
 ```
