@@ -22,6 +22,13 @@ As the name suggests DATETIME is both of the above together in a single field:
 
 'YYYY-MM-DD HH:MM:SS' format
 
+CREATE TABLE people (
+	name VARCHAR(100),
+    birthdate DATE,
+    birthtime TIME,
+    birthdt DATETIME
+);
+
 INSERT INTO people (name, birthdate, birthtime, birthdt) VALUES('Elton', '2000-12-25', '21:01:22', '2000-12-25 21:01:22');
 
 INSERT INTO people (name, birthdate, birthtime, birthdt) VALUES('Lulu', '1985-04-11', '9:45:10', '1985-04-11 9:45:10');
