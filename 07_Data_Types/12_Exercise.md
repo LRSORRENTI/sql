@@ -71,6 +71,16 @@ SELECT CONCAT(LPAD(MONTH(CURDATE()), 2, '0'), '/', LPAD(DAYOFMONTH(CURDATE()), 2
 | 04/03/2024 |
 +------------+
 
+COLTS SOLUTION:
+
+SELECT DATE_FORMAT(CURDATE(), '%m/%d/%Y');
++------------------------------------+
+| DATE_FORMAT(CURDATE(), '%m/%d/%Y') |
++------------------------------------+
+| 04/03/2024                         |
++------------------------------------+
+
+
 
 8. Print out the current date and time in this format: January 1st at 3:00
 
@@ -99,5 +109,35 @@ SELECT CONCAT(MONTHNAME(CURDATE()), ' ', DATE_FORMAT(CURDATE(), '%D'), ' at ', T
 +-------------------+
 
 
+COLTS SOLUTION: 
+
+SELECT DATE_FORMAT(NOW(), '%M %D at %k:%i');
++--------------------------------------+
+| DATE_FORMAT(NOW(), '%M %D at %k:%i') |
++--------------------------------------+
+| April 3rd at 8:25                    |
++--------------------------------------+
+
+
 
 9. Create a tweets table that stores tweet/message text content, username, and time that post was created
+
+CREATE TABLE tweets (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     username VARCHAR(50),
+    ->     tweet_text TEXT,
+    ->     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (1.20 sec)
+
+INSERT INTO tweets (username, tweet_text) VALUES 
+('luke', 'time for a run!');
+
+
+SELECT * FROM tweets;
++----+----------+-----------------+---------------------+
+| id | username | tweet_text      | created_at          |
++----+----------+-----------------+---------------------+
+|  1 | luke     | time for a run! | 2024-04-03 08:12:12 |
++----+----------+-----------------+---------------------+
+
