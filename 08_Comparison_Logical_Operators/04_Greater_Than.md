@@ -1,4 +1,4 @@
-# Greater than
+# Greater than, Less than
 
 Greater than operator '>' will check for values that exceed the checked value 
 
@@ -49,3 +49,37 @@ SELECT 1 > NULL;
 +----------+
 |     NULL |
 +----------+
+
+
+SELECT title, released_year FROM books WHERE released_year < 2000 ORDER BY released_year ASC;
++-----------------------------------------------------+---------------+
+| title                                               | released_year |
++-----------------------------------------------------+---------------+
+| Cannery Row                                         |          1945 |
+| What We Talk About When We Talk About Love: Stories |          1981 |
+| White Noise                                         |          1985 |
+| Where I'm Calling From: Selected Stories            |          1989 |
+| Interpreter of Maladies                             |          1996 |
++-----------------------------------------------------+---------------+
+
+SELECT title, released_year FROM books WHERE released_year >= 2010;
++----------------------------------+---------------+
+| title                            | released_year |
++----------------------------------+---------------+
+| Norse Mythology                  |          2016 |
+| A Hologram for the King: A Novel |          2012 |
+| The Circle                       |          2013 |
+| Just Kids                        |          2010 |
+| 10% Happier                      |          2014 |
+| Lincoln In The Bardo             |          2017 |
++----------------------------------+---------------+
+
+SELECT title, released_year FROM books WHERE released_year <= 1985;
+
++-----------------------------------------------------+---------------+
+| title                                               | released_year |
++-----------------------------------------------------+---------------+
+| What We Talk About When We Talk About Love: Stories |          1981 |
+| White Noise                                         |          1985 |
+| Cannery Row                                         |          1945 |
++-----------------------------------------------------+---------------+
