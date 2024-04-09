@@ -2,6 +2,8 @@
 
 The IN operator helps us select values that are IN a specifed set of values, the IN operator must include the set which is ('value', 'value', 'value')
 
+The main use case is being able to quickly check multple values instead or chaining together a long SELECT * WHERE author_lname =...., just using a set of values in parentheses and the IN operator is a quick way to check for more than one value
+
 The syntax looks like this: 
 
 ### SELECT title, author_lname FROM books WHERE author_lname IN ('Carver', 'Lahiri', 'Smith');
