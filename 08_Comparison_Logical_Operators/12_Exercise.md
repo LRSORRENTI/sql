@@ -71,12 +71,32 @@ SELECT author_lname FROM books WHERE author_lname LIKE 'C%' OR author_lname LIKE
 | Saunders     |
 +--------------+
 
+There is another way to get the above query using SUBSTR
+
+SELECT author_lname
+FROM books 
+WHERE SUBSTR(author_lname, 1, 1) 
+IN ('C', 'S');
+
++--------------+
+| author_lname |
++--------------+
+| Chabon       |
+| Smith        |
+| Carver       |
+| Carver       |
+| Steinbeck    |
+| Saunders     |
++--------------+
+
 7. Write a query that returns values where title has the string 'stories' somewhere within, and use a case to assign it a column TYPE of short stories, and the books 'just kids', and 'A heartbreaking work' are TYPE 'Memoir' case, and everything else defaults to CASE type of Novel
 
 SELECT title, author_lname,
     CASE         
-    WHEN title LIKE '%stories%' THEN 'Short Stories'
-    WHEN title = 'Just Kids' OR title = 'A Heartbreaking Work of Staggering Genius' THEN 'Memoir'
+        WHEN title LIKE '%stories%'
+        THEN 'Short Stories'
+        WHEN title = 'Just Kids' OR title = 'A Heartbreaking Work of Staggering Genius' 
+        THEN 'Memoir'
     ELSE 'Novel'     
     END AS TYPE 
 FROM books;
@@ -106,7 +126,7 @@ FROM books;
 | Summa Theologica                                    | Aquinas        | Novel         |
 +-----------------------------------------------------+----------------+---------------+
 
-7. Write a query that returns author_fname, author_lname, and a final column called COUNT which for each author '2 books', '3 books' or '1 book' singular if there's only 1 etc..
+8. Write a query that returns author_fname, author_lname, and a final column called COUNT which for each author '2 books', '3 books' or '1 book' singular if there's only 1 etc..
 
 SELECT 
     author_fname,
