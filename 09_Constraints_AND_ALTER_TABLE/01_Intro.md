@@ -39,5 +39,5 @@ INSERT INTO contacts (name, phone)
     -> VALUES (
     ->     'Jane smith', '5559995555'
     -> );
-    
+
 ERROR 1062 (23000): Duplicate entry '5559995555' for key 'contacts.phone'
