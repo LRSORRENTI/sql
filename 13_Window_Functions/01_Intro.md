@@ -34,3 +34,5 @@ But when we execute that query
 +---------------+------------------+--------+------------+
 
 The main difference between this an GROUP BY, is that this returns the dept_avg for every row, if we used GROUP BY it would collapse each of the dept rows into 1 final avg for that dept
+
+Window functions will output the result for every row, where GROUP BY will squish all the rows down into just the specified rows 
