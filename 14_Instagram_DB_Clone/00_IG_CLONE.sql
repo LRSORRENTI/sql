@@ -79,3 +79,41 @@ INSERT INTO photos (image_url, user_id) VALUES
 -- | randomimageurls155243/ | Charlie  |
 -- | randomimageurls128998/ | Luke     |
 -- +------------------------+----------+
+
+-- NOTE that comments are written by a user, but also connected 
+-- to a specific photo, so we'll need two foreign keys 
+
+CREATE TABLE comments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    comment_text VARCHAR(255) NOT NULL,
+    user_id INT NOT NULL,
+    photo_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (photo_id) REFERENCES photos(id)
+);
+
+-- DESC comments;
+-- +--------------+--------------+------+-----+-------------------+-------------------+
+-- | Field        | Type         | Null | Key | Default           | Extra             |
+-- +--------------+--------------+------+-----+-------------------+-------------------+
+-- | id           | int          | NO   | PRI | NULL              | auto_increment    |
+-- | comment_text | varchar(255) | NO   |     | NULL              |                   |
+-- | user_id      | int          | NO   | MUL | NULL              |                   |
+-- | photo_id     | int          | NO   | MUL | NULL              |                   |
+-- | created_at   | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+-- +--------------+--------------+------+-----+-------------------+-------------------+
+
+INSERT INTO comments (comment_text, user_id, photo_id) VALUES
+('Meow', 1, 2),
+('Nice', 3, 2),
+('hello', 2, 1);
+
+-- SELECT * FROM comments;
+-- +----+--------------+---------+----------+---------------------+
+-- | id | comment_text | user_id | photo_id | created_at          |
+-- +----+--------------+---------+----------+---------------------+
+-- |  1 | Meow         |       1 |        2 | 2024-04-20 08:10:09 |
+-- |  2 | Nice         |       3 |        2 | 2024-04-20 08:10:09 |
+-- |  3 | hello        |       2 |        1 | 2024-04-20 08:10:09 |
+-- +----+--------------+---------+----------+---------------------+
