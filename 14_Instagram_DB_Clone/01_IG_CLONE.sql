@@ -197,3 +197,34 @@ SELECT * FROM follows;
 -- |           2 |           3 | 2024-04-20 09:31:40 |
 -- |           3 |           1 | 2024-04-20 09:31:40 |
 -- +-------------+-------------+---------------------+
+
+-- HASHTAGS TABLE 
+
+CREATE TABLE tags (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    tag_name varchar(255) UNIQUE,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE photo_tags (
+    photo_id INTEGER NOT NULL, 
+    tag_id INTEGER NOT NULL,
+    FOREIGN KEY(photo_id) REFERENCES photos(id),
+    FOREIGN KEY(tag_id) REFERENCES tags(id),
+    PRIMARY KEY(photo_id, tag_id)
+);
+
+SHOW TABLES;
+
+-- +---------------------------+
+-- | Tables_in_instagram_clone |
+-- +---------------------------+
+-- | comments                  |
+-- | follows                   |
+-- | likes                     |
+-- | photo_tags                |
+-- | photos                    |
+-- | tags                      |
+-- | users                     |
+-- +---------------------------+
+
