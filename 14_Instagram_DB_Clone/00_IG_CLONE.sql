@@ -117,3 +117,38 @@ INSERT INTO comments (comment_text, user_id, photo_id) VALUES
 -- |  2 | Nice         |       3 |        2 | 2024-04-20 08:10:09 |
 -- |  3 | hello        |       2 |        1 | 2024-04-20 08:10:09 |
 -- +----+--------------+---------+----------+---------------------+
+
+-- #### What about likes? 
+
+-- For likes we'll probably need to reference the user_id,
+-- photo_id, and created_at, note we don't need to add 
+-- an id field to likes, we'll only ever need to reference 
+-- likes in the context of users and photos, note the 
+-- PRIMARY KEY(user_id, photo_id) this line ensures a like 
+-- can only be left once, one single user can't then like 
+-- a photo more than once 
+
+CREATE TABLE likes (
+    user_id INT NOT NULL,
+    photo_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (photo_id) REFERENCES photos(id),
+    PRIMARY KEY(user_id, photo_id)
+);
+
+INSERT INTO likes (user_id, photo_id) VALUES 
+(1,1),
+(2,1),
+(3,2),
+(2,3);
+
+-- SELECT * FROM likes;
+-- +---------+----------+---------------------+
+-- | user_id | photo_id | created_at          |
+-- +---------+----------+---------------------+
+-- |       1 |        1 | 2024-04-20 08:40:43 |
+-- |       2 |        1 | 2024-04-20 08:40:43 |
+-- |       2 |        3 | 2024-04-20 08:40:43 |
+-- |       3 |        2 | 2024-04-20 08:40:43 |
+-- +---------+----------+---------------------+
