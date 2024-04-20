@@ -152,3 +152,11 @@ INSERT INTO likes (user_id, photo_id) VALUES
 -- |       2 |        3 | 2024-04-20 08:40:43 |
 -- |       3 |        2 | 2024-04-20 08:40:43 |
 -- +---------+----------+---------------------+
+
+-- BELOW WON'T WORK BECAUSE OF THE PRIMARY KEY CONSTRAINT
+-- PRIMARY KEY(user_id, photo_id)
+-- User 1 has already liked photo id of 1, this prevents 
+-- liking more than once 
+
+-- INSERT INTO likes(user_id, photo_id) VALUES 
+-- (1,1);
