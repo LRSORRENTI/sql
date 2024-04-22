@@ -228,3 +228,41 @@ SHOW TABLES;
 -- | users                     |
 -- +---------------------------+
 
+INSERT INTO tags(tag_name) VALUES 
+('adorable'),
+('nice'),
+('sunrise');
+
+SELECT * FROM tags;
+-- +----+----------+---------------------+
+-- | id | tag_name | created_at          |
+-- +----+----------+---------------------+
+-- |  1 | adorable | 2024-04-22 06:42:03 |
+-- |  2 | nice     | 2024-04-22 06:42:03 |
+-- |  3 | sunrise  | 2024-04-22 06:42:03 |
+-- +----+----------+---------------------+
+
+INSERT INTO photo_tags (photo_id, tag_id) VALUES 
+(1,1),
+(1,2),
+(2,3),
+(3,2);
+
+SELECT * FROM photo_tags;
+
+-- +----------+--------+
+-- | photo_id | tag_id |
+-- +----------+--------+
+-- |        1 |      1 |
+-- |        1 |      2 |
+-- |        3 |      2 |
+-- |        2 |      3 |
+-- +----------+--------+
+
+INSERT INTO photo_tags(photo_id, tag_id) VALUES
+(1,1);
+-- The above query returns an error since we already tagged that 
+-- photo:
+
+-- ERROR 1062 (23000): Duplicate entry '1-1' for key
+-- 'photo_tags.PRIMARY'
