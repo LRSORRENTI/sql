@@ -4,7 +4,7 @@ Going to practice and brush up on SQL, setup MySQL perform CRUD ops
 
 ## Beginner to intermediate SQL
 
-- [educba][https://www.educba.com/data-science/data-science-tutorials/mysql-tutorial/]
+- [educba] [https://www.educba.com/data-science/data-science-tutorials/mysql-tutorial/]
 - [w3][https://www.w3resource.com/mysql/mysql-tutorials.php]
 - [geeksforgeeks][https://www.geeksforgeeks.org/sql-tutorial/?ref=gcse]
 - [mysqltutorial][https://www.mysqltutorial.org/]
